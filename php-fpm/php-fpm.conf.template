@@ -1,5 +1,5 @@
 [nobody]
-listen = /dev/shm/nobody-{{PHP_VERSION_INTEGER}}.sock
+listen = /dev/shm/nobody-php{{PHP_VERSION_INTEGER}}.sock
 listen.owner = nobody
 listen.group = nobody
 listen.mode = 0660

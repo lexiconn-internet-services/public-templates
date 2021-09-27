@@ -24,6 +24,10 @@ $replacements = [
 ];
 
 foreach ($replacements as $key => $value) {
-    $command = sprintf("sed -i 's#^%1\$s .*#%1\$s = %2\$s#g' php*.ini;\n", $key, $value);
+    $command = sprintf("sed -i '' 's#^%1\$s .*#%1\$s = %2\$s#g' php*.ini;\n", $key, $value);
+    $command2 = sprintf("sed -i '' 's#^;%1\$s .*#%1\$s = %2\$s#g' php*.ini;\n", $key, $value);
+    $command3 = sprintf("sed -i '' 's#^; %1\$s .*#%1\$s = %2\$s#g' php*.ini;\n", $key, $value);
     `$command`;
+    `$command2`;
+    `$command3`;
 }

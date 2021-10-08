@@ -1,0 +1,56 @@
+[client]
+port = 3306
+socket = /tmp/mysql.sock
+
+[mysqld]
+sql_mode=NO_ENGINE_SUBSTITUTION
+user=mysql
+datadir=/usr/local/mysql/data
+port = 3306
+socket = /tmp/mysql.sock
+skip-external-locking
+local-infile
+max_connections=1500
+long_query_time=5
+slow_query_log=1
+slow_query_log_file = /home/mysql/mysql_data/mysql-slow.log
+#log-slow-queries = /home/mysql/mysql_data/mysql-slow.log
+key_buffer=32M
+myisam_sort_buffer_size=32M
+join_buffer=6M
+read_buffer_size=2M
+sort_buffer_size=2M
+table_open_cache=4096
+table_definition_cache=4096
+thread_cache_size=128
+wait_timeout=300
+tmp_table_size = 384M
+max_heap_table_size = 384M
+max_allowed_packet=64M
+query_cache_limit = 4M
+query_cache_size = 384M
+query_cache_type = 1
+open_files_limit = 16384
+
+innodb_file_per_table
+innodb_flush_log_at_trx_commit  = 2
+# Set buffer pool size to 50-80% of your computer's memory
+innodb_data_file_path = ibdata1:10M:autoextend
+innodb_buffer_pool_size=2048M
+innodb_additional_mem_pool_size=20M
+# Set the log file size to about 25% of the buffer pool size
+innodb_log_file_size=512M
+innodb_log_buffer_size=8M
+
+[mysqld_safe]
+open_files_limit = 8192
+
+[mysqldump]
+quick
+max_allowed_packet=768M
+
+[myisamchk]
+key_buffer=64M
+sort_buffer=64M
+read_buffer=16M
+write_buffer=16M

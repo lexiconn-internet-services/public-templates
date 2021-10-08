@@ -1,0 +1,65 @@
+[client]
+port = 3306
+socket = /tmp/mysql.sock
+
+[mysqld]
+user=mysql
+port = 3306
+socket = /tmp/mysql.sock
+datadir=/usr/local/mysql/data
+plugin-load=validate_password.so
+default_password_lifetime = 0
+validate_password_policy = LOW
+validate_password_length = 6
+sql_mode=NO_ENGINE_SUBSTITUTION
+show_compatibility_56 = On
+ssl-ca=/etc/mysql/keys/ca-cert.pem
+ssl-cert=/etc/mysql/keys/server-cert.pem
+ssl-key=/etc/mysql/keys/server-key.pem
+skip-external-locking
+local-infile
+max_connections=400
+long_query_time=5
+slow_query_log=1
+slow_query_log_file = /home/mysql/mysql_data/mysql-slow.log
+key_buffer_size=64M
+myisam_sort_buffer_size=32M
+join_buffer_size=6M
+read_buffer_size=2M
+sort_buffer_size=2M
+table_open_cache=4096
+table_definition_cache=4096
+thread_cache_size=128
+wait_timeout=900
+tmp_table_size = 384M
+max_heap_table_size = 384M
+max_allowed_packet=768M
+query_cache_limit = 4M
+query_cache_size = 256M
+query_cache_type = 1
+log_error = /home/mysql/mysql_data/mysql-error.log
+skip-name-resolve
+transaction_isolation = READ-COMMITTED
+innodb_file_per_table
+innodb_flush_log_at_trx_commit  = 2
+# Set buffer pool size to 50-80% of your computer's memory
+innodb_data_file_path = ibdata1:10M:autoextend
+innodb_buffer_pool_size=2048M
+# Set the log file size to about 25% of the buffer pool size
+innodb_log_file_size=512M
+innodb_log_buffer_size=8M
+innodb_buffer_pool_instances=2
+innodb_temp_data_file_path = ibtmp1:12M:autoextend:max:16G
+
+[mysqld_safe]
+open_files_limit = 8192
+
+[mysqldump]
+quick
+max_allowed_packet=768M
+
+[myisamchk]
+key_buffer=64M
+sort_buffer=64M
+read_buffer=16M
+write_buffer=16M

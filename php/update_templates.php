@@ -43,6 +43,7 @@ foreach( glob("*.ini") as $file){
         $find = "/^(;|; )?{$key_regex}(\s+)?=.*\$/m";
         $replace = "$key = $value";
         
+        // If the parameter doesn't exist for this PHP version, tell us at the bottom of the file.
         if(! preg_match($find, $contents) && !preg_match("/^;;{$key_regex}(\s+)?=.*\$/m", $contents)) {
             $contents .= PHP_EOL.";;$replace - Not valid for this PHP version.";
             continue;

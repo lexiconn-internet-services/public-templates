@@ -43,11 +43,11 @@ foreach( glob("*.ini") as $file){
         $find = "/^(;|; )?{$key_regex}(\s+)?=.*\$/m";
         $replace = "$key = $value";
         
-        if(! preg_match($find, $contents)) {
+        if(! preg_match($find, $contents) && !preg_match("/^;;{$key_regex}(\s+)?=.*\$/m", $contents)) {
             $contents .= PHP_EOL.";;$replace - Not valid for this PHP version.";
             continue;
         }
-            $contents = preg_replace($find, $replace, $contents);
+        $contents = preg_replace($find, $replace, $contents);
     }
     file_put_contents($file, $contents);
 }

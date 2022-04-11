@@ -50,7 +50,7 @@ innodb_buffer_pool_size=2048M
 # Set the log file size to about 25% of the buffer pool size
 innodb_log_file_size=512M
 innodb_log_buffer_size=8M
-innodb_buffer_pool_instances=32
+innodb_buffer_pool_instances=2
 innodb_temp_data_file_path = ibtmp1:12M:autoextend:max:16G
 log_bin_trust_function_creators=1
 log-bin-trust-function-creators=1

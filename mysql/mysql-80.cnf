@@ -56,6 +56,7 @@ log_bin_trust_function_creators=1
 log-bin-trust-function-creators=1
 expire-logs-days=2
 binlog_cache_size=16M
+log_error_suppression_list='MY-013360'
 
 [mysqld_safe]
 open_files_limit = 8192

@@ -50,6 +50,7 @@ innodb_log_file_size=512M
 innodb_log_buffer_size=8M
 innodb_buffer_pool_instances=2
 innodb_temp_data_file_path = ibtmp1:12M:autoextend:max:16G
+innodb_redo_log_capacity=2G
 
 [mysqld_safe]
 open_files_limit = 8192
